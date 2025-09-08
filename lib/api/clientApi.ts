@@ -6,6 +6,11 @@ interface SessionStatus {
   success: boolean;
 }
 
+interface FetchedNotesResponse {
+  notes: Note[];
+  totalPages: number;
+}
+
 export const register = async (credentials: Credentials) => {
   const { data } = await nextServer.post<User>('/auth/register', credentials);
   return data;
@@ -31,10 +36,12 @@ export const getMe = async () => {
   return data;
 };
 
-interface FetchedNotesResponse {
-  notes: Note[];
-  totalPages: number;
-}
+export const updateMe = async (username: string): Promise<User> => {
+  const { data } = await nextServer.patch<User>('/users/me', {
+    username,
+  });
+  return data;
+};
 
 export const fetchNotes = async (
   page: number,
@@ -59,12 +66,5 @@ export const createNote = async (newNote: NewNote): Promise<Note> => {
 
 export const deleteNote = async (id: string): Promise<Note> => {
   const { data } = await nextServer.delete<Note>(`/notes/${id}`);
-  return data;
-};
-
-export const updateMe = async (username: string): Promise<User> => {
-  const { data } = await nextServer.patch<User>('/users/me', {
-    username,
-  });
   return data;
 };
