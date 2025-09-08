@@ -1,1 +1,1 @@
-NoteHub refactoring.
+An application for storing, creating, deleting and searching notes.

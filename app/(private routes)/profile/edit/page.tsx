@@ -7,6 +7,7 @@ import css from './EditProfilePage.module.css';
 import { getMe, updateMe } from '@/lib/api/clientApi';
 import { useAuthStore } from '@/lib/store/authStore';
 import { User } from '@/types/user';
+import Loader from '@/components/Loader/Loader';
 
 const EditProfilePage = () => {
   const router = useRouter();
@@ -46,7 +47,7 @@ const EditProfilePage = () => {
 
   const handleCancel = () => router.push('/profile');
 
-  if (loading || !user) return <p>Loading...</p>;
+  if (loading || !user) return <Loader />;
 
   return (
     <main className={css.mainContent}>
