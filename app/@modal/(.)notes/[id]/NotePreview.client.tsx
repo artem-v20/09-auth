@@ -1,12 +1,12 @@
 'use client';
 
 import css from './NotePreview.module.css';
-import { fetchNoteById } from '@/lib/api';
+import { fetchNoteById } from '@/lib/api/clientApi';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useRouter } from 'next/navigation';
 import Modal from '@/components/Modal/Modal';
 import React from 'react';
-import Loading from '@/app/notes/filter/[...slug]/loading';
+import Loading from '@/app/(private routes)/notes/filter/[...slug]/loading';
 
 const NotePreview = () => {
   const router = useRouter();

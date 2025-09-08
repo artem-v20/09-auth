@@ -1,7 +1,7 @@
 'use client';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createNote } from '../../lib/api';
+import { createNote } from '@/lib/api/clientApi';
 import { RiTelegram2Fill } from 'react-icons/ri';
 import css from './NoteForm.module.css';
 import { NewNote } from '@/types/note';
