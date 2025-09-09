@@ -49,7 +49,7 @@ export const fetchNotes = async (
   tag: string
 ): Promise<FetchedNotesResponse> => {
   const { data } = await nextServer.get<FetchedNotesResponse>('/notes', {
-    params: { perPage: 9, page, search, ...(tag && { tag }) },
+    params: { perPage: 12, page, search, ...(tag && { tag }) },
   });
   return data;
 };

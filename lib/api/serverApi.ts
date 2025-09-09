@@ -23,7 +23,7 @@ export const fetchNotes = async (
 ): Promise<FetchedNotesResponse> => {
   const cookieStore = await cookies();
   const { data } = await nextServer.get<FetchedNotesResponse>('/notes', {
-    params: { perPage: 9, page, search, ...(tag && { tag }) },
+    params: { perPage: 12, page, search, ...(tag && { tag }) },
     headers: { Cookie: cookieStore.toString() },
   });
   return data;
